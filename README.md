@@ -1,15 +1,15 @@
-#📚 Online Book Store (SQL Project)
+📚 Online Book Store (SQL Project)
 
-##📌 Overview
+📌 Overview
 
 This project is a **PostgreSQL-based Online Book Store Management System** designed to handle book inventory, customer records, and order transactions. It showcases practical usage of SQL for data management and analysis.
 
 
-##🗂️ Database Schema
+🗂️ Database Schema
 
 The database consists of three main tables:
 
-###📖 Books
+📖 Books
 
 * `Book_ID` (Primary Key)
 * `Title`
@@ -19,7 +19,7 @@ The database consists of three main tables:
 * `Price`
 * `Stock`
 
-###👤 Customers
+👤 Customers
 
 * `Customer_ID` (Primary Key)
 * `Name`
@@ -28,7 +28,7 @@ The database consists of three main tables:
 * `City`
 * `Country`
 
-###🛒 Orders
+🛒 Orders
 
 * `Order_ID` (Primary Key)
 * `Customer_ID` (Foreign Key)
@@ -37,33 +37,33 @@ The database consists of three main tables:
 * `Quantity`
 * `Total_Amount`
 
-##⚙️ Features
+⚙️ Features
 
 * Manage book inventory and stock levels
 * Store and retrieve customer details
 * Track book orders and purchases
 * Perform data analysis using SQL queries
 
-##🛠️ Technologies Used
+🛠️ Technologies Used
 
 * PostgreSQL
 * SQL (DDL, DML, Joins, Aggregations, Subqueries)
 
 
-##🚀 Setup Instructions
+🚀 Setup Instructions
 
-###1️⃣ Create Database
+1️⃣ Create Database
 
 ```sql
 CREATE DATABASE OnlineBookstore;
 ```
 
-###2️⃣ Connect to Database
+2️⃣ Connect to Database
 
 ```sql
 \c OnlineBookstore;
 ```
-###3️⃣ Create Tables
+3️⃣ Create Tables
 
 ```sql
 -- Books Table
@@ -97,7 +97,7 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 ```
-##🔍 Example Queries
+🔍 Example Queries
 
 ```sql
 -- Retrieve Fiction books
@@ -116,32 +116,32 @@ WHERE Order_Date BETWEEN '2023-11-01' AND '2023-11-30';
 SELECT SUM(Total_Amount) AS TotalRevenue
 FROM Orders;
 ```
-##📁 Project Structure
+📁 Project Structure
 
 OnlineBookstore/
 │── queries.sql
 │── README.md
 
 
-##🎯 Learning Outcomes
+🎯 Learning Outcomes
 
 * Designing relational databases
 * Writing efficient SQL queries
 * Using joins and aggregations
 * Solving real-world data problems
 
-##🔮 Future Enhancements
+🔮 Future Enhancements
 
 * Add OrderDetails table (for normalization)
 * Build frontend interface
 * Add stored procedures and triggers
 * Optimize queries with indexing
 
-##👨‍💻 Author
+👨‍💻 Author
 
 Varun Sirohi
 
-##⭐ Support
+⭐ Support
 
 If you like this project, give it a ⭐ on GitHub!
 
