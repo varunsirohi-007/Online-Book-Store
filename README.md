@@ -1,147 +1,122 @@
-📚 Online Book Store (SQL Project)
+# 📚 Online Book Store (SQL Project)
 
-📌 Overview
+## 🚀 Project Overview
 
-This project is a **PostgreSQL-based Online Book Store Management System** designed to handle book inventory, customer records, and order transactions. It showcases practical usage of SQL for data management and analysis.
+Designed and developed a **relational database system using PostgreSQL** to simulate a real-world online bookstore.
+The project focuses on **data organization, query optimization, and business insights generation** using SQL.
 
+This project demonstrates strong fundamentals in **data analytics, database design, and backend data handling**.
 
-🗂️ Database Schema
+## 🎯 Key Highlights
 
-The database consists of three main tables:
+* Designed a **normalized relational database schema**
+* Managed **inventory, customers, and transactions**
+* Performed **analytical queries to extract business insights**
+* Applied **joins, aggregations, and subqueries** for real-world scenarios
 
-📖 Books
+## 🗂️ Database Schema
 
-* `Book_ID` (Primary Key)
-* `Title`
-* `Author`
-* `Genre`
+### 📖 Books
+
+Stores book inventory details
+
+* `Book_ID` (PK)
+* `Title`, `Author`, `Genre`
 * `Published_Year`
-* `Price`
-* `Stock`
+* `Price`, `Stock`
 
-👤 Customers
+### 👤 Customers
 
-* `Customer_ID` (Primary Key)
-* `Name`
-* `Email`
-* `Phone`
-* `City`
-* `Country`
+Maintains customer information
 
-🛒 Orders
+* `Customer_ID` (PK)
+* `Name`, `Email`, `Phone`
+* `City`, `Country`
 
-* `Order_ID` (Primary Key)
-* `Customer_ID` (Foreign Key)
-* `Book_ID` (Foreign Key)
+### 🛒 Orders
+
+Tracks customer purchases
+
+* `Order_ID` (PK)
+* `Customer_ID` (FK)
+* `Book_ID` (FK)
 * `Order_Date`
-* `Quantity`
-* `Total_Amount`
+* `Quantity`, `Total_Amount`
 
-⚙️ Features
+## ⚙️ Core Functionalities
 
-* Manage book inventory and stock levels
-* Store and retrieve customer details
-* Track book orders and purchases
-* Perform data analysis using SQL queries
+* 📦 Inventory tracking and stock management
+* 👥 Customer data storage and retrieval
+* 🛍️ Order tracking and transaction management
+* 📊 Revenue and sales analysis using SQL
 
-🛠️ Technologies Used
+## 🛠️ Tech Stack
 
-* PostgreSQL
-* SQL (DDL, DML, Joins, Aggregations, Subqueries)
+* **PostgreSQL** – Database management
+* **SQL** – Data querying and manipulation
 
+  * DDL (Data Definition Language)
+  * DML (Data Manipulation Language)
+  * Joins & Aggregations
+  * Subqueries
 
-🚀 Setup Instructions
+## 📊 Sample Business Queries
 
-1️⃣ Create Database
+```sql
+-- Total Revenue Generated
+SELECT SUM(Total_Amount) AS TotalRevenue
+FROM Orders;
+
+-- Top Selling Books
+SELECT Book_ID, SUM(Quantity) AS TotalSold
+FROM Orders
+GROUP BY Book_ID
+ORDER BY TotalSold DESC;
+
+-- Customers with Highest Purchases
+SELECT Customer_ID, SUM(Total_Amount) AS TotalSpent
+FROM Orders
+GROUP BY Customer_ID
+ORDER BY TotalSpent DESC;
+```
+
+## 🚀 Setup Guide
 
 ```sql
 CREATE DATABASE OnlineBookstore;
-```
-
-2️⃣ Connect to Database
-
-```sql
 \c OnlineBookstore;
 ```
-3️⃣ Create Tables
 
-```sql
--- Books Table
-CREATE TABLE Books (
-    Book_ID SERIAL PRIMARY KEY,
-    Title VARCHAR(100),
-    Author VARCHAR(100),
-    Genre VARCHAR(50),
-    Published_Year INT,
-    Price NUMERIC(10, 2),
-    Stock INT
-);
+Run table creation scripts from `queries.sql`.
 
--- Customers Table
-CREATE TABLE Customers (
-    Customer_ID SERIAL PRIMARY KEY,
-    Name VARCHAR(100),
-    Email VARCHAR(100),
-    Phone VARCHAR(15),
-    City VARCHAR(50),
-    Country VARCHAR(150)
-);
+---
 
--- Orders Table
-CREATE TABLE Orders (
-    Order_ID SERIAL PRIMARY KEY,
-    Customer_ID INT REFERENCES Customers(Customer_ID),
-    Book_ID INT REFERENCES Books(Book_ID),
-    Order_Date DATE,
-    Quantity INT,
-    Total_Amount NUMERIC(10, 2)
-);
+## 📁 Project Structure
+
 ```
-🔍 Example Queries
-
-```sql
--- Retrieve Fiction books
-SELECT * FROM Books
-WHERE Genre = 'Fiction';
-
--- Customers from Canada
-SELECT * FROM Customers
-WHERE Country = 'Canada';
-
--- Orders in November 2023
-SELECT * FROM Orders
-WHERE Order_Date BETWEEN '2023-11-01' AND '2023-11-30';
-
--- Total revenue
-SELECT SUM(Total_Amount) AS TotalRevenue
-FROM Orders;
-```
-📁 Project Structure
-
 OnlineBookstore/
 │── queries.sql
 │── README.md
+│── Books.csv
+│── Orders.csv
+│── Customers.csv
+```
 
+## 📈 Skills Demonstrated
 
-🎯 Learning Outcomes
+* Relational Database Design
+* Data Analysis using SQL
+* Problem Solving with Queries
+* Data Modeling & Optimization
 
-* Designing relational databases
-* Writing efficient SQL queries
-* Using joins and aggregations
-* Solving real-world data problems
+## 🔮 Future Improvements
 
-🔮 Future Enhancements
+* Implement **OrderDetails table** for better normalization
+* Add **indexes for performance optimization**
+* Create **stored procedures & triggers**
+* Integrate with a **frontend application (Power BI / Web App)**
 
-* Add OrderDetails table (for normalization)
-* Build frontend interface
-* Add stored procedures and triggers
-* Optimize queries with indexing
+## 👨‍💻 Author
 
-👨‍💻 Author
-
-Varun Sirohi
-
-⭐ Support
-
-If you like this project, give it a ⭐ on GitHub!
+**Varun Sirohi**
 
